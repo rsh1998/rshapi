@@ -1,0 +1,6 @@
+com\rsh\rshapicommon\service\InvokeUserInterfaceInfoCommonService.class
+com\rsh\rshapicommon\entity\InvokeUserInterfaceInfo.class
+com\rsh\rshapicommon\service\InvokeUserCommonService.class
+com\rsh\rshapicommon\entity\InvokeUser.class
+com\rsh\rshapicommon\service\InvokeInterfaceInfoCommonService.class
+com\rsh\rshapicommon\entity\InvokeInterfaceInfo.class

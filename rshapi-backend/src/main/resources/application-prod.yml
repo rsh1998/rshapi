@@ -1,0 +1,43 @@
+server:
+  port: 8101
+spring:
+  # 数据库配置
+  # todo 需替换配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rshapi
+    username: root
+    password: 123456
+  # Redis 配置
+  # todo 需替换配置
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    timeout: 5000
+    password: 123456
+  # Elasticsearch 配置
+  # todo 需替换配置
+  elasticsearch:
+    uris: http://localhost:9200
+    username: root
+    password: 123456
+mybatis-plus:
+  configuration:
+    # 生产环境关闭日志
+    log-impl: ''
+#该数据仅为测试使用 在项目中并未使用
+rshapi:
+  client:
+    secret-key: rsh
+    access-key: abcdefgh
+
+dubbo:
+  application:
+    name: rshapi-backend-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    #address: zookeeper://127.0.0.1:2181
+    address: nacos://192.168.194.1:8848

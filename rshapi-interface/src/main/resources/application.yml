@@ -1,0 +1,8 @@
+server:
+  port: 8102
+  servlet:
+    context-path: /api
+rshapi:
+  client:
+    access-key: rsh
+    secret-key: abcdefgh

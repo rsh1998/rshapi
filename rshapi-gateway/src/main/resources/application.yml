@@ -1,0 +1,52 @@
+server:
+  port: 8103
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rshapi
+    username: root
+    password: 123456
+
+  cloud:
+    gateway:
+      default-filters:
+        - AddRequestHeader=rsh,swag
+      routes:
+      - id: myapi
+        uri: http://localhost:8102
+        predicates:
+          - Path=/api/**
+          #- Path=/api/{api_url}
+
+#        - id: add_request_header_route
+#          uri: http://localhost:8102
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#
+#            - AddRequestParameter=name,dog
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fallback
+#        - id: rsh-fallback
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Path=/fallback
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+
+dubbo:
+  application:
+    name: rshapi-gateway-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    #address: zookeeper://127.0.0.1:2181
+    address: nacos://192.168.194.1:8848
